@@ -190,11 +190,69 @@ public class Main
     public static void addAlbum() // c2
     {
         System.out.println("Dodaj nowy album do bazy danych:");
-        // ???
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection
+                    ("jdbc:mysql://localhost:3306/4.1_music-collection", "root", "");
+
+            // dodanie nowego, dowolnego rekordu do tabeli 'adv_books'
+            PreparedStatement stmt_album = con.prepareStatement
+                    ("INSERT INTO album (title, tracks, year) VALUES (?, ?, ?)");
+
+            System.out.println("Podaj nazwę albumu:");
+            String ParameterA1;
+            ParameterA1 = sc.next();
+
+            System.out.println("Podaj ilość utworów:");
+            String ParameterA2;
+            ParameterA2 = sc.next();
+
+            System.out.println("Podaj rok albumu:");
+            String ParameterA3;
+            ParameterA3 = sc.next();
+
+            ((PreparedStatement) stmt_album).setString(1, ParameterA1);
+            stmt_album.setString(2, ParameterA2);
+            stmt_album.setString(3, ParameterA3);
+            stmt_album.executeUpdate(); // dodanie rekordu
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
     public static void addCreator() // c1
     {
         System.out.println("Ddaj nowego wykonawcę do bazy danych:");
-        // ???
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection
+                    ("jdbc:mysql://localhost:3306/4.1_music-collection", "root", "");
+
+            // dodanie nowego, dowolnego rekordu do tabeli 'adv_books'
+            PreparedStatement stmt_band = con.prepareStatement
+                    ("INSERT INTO band (name, genre, albums) VALUES (?, ?, ?)");
+
+            System.out.println("Podaj nazwę wykonawcy:");
+            String ParameterB1;
+            ParameterB1 = sc.next();
+
+            System.out.println("Podaj rodzaj muzyki:");
+            String ParameterB2;
+            ParameterB2 = sc.next();
+
+            System.out.println("Podaj nazwę albumu:");
+            String ParameterB3;
+            ParameterB3 = sc.next();
+
+            ((PreparedStatement) stmt_band).setString(1, ParameterB1);
+            stmt_band.setString(2, ParameterB2);
+            stmt_band.setString(3, ParameterB3);
+            stmt_band.executeUpdate(); // dodanie rekordu
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

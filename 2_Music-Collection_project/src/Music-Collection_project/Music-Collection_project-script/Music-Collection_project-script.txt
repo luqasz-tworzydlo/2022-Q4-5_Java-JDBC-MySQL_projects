@@ -11,7 +11,9 @@ dodaj po kilka rekordów [2-3 rekrody na jedną tabelę]
 
 w javie napisz program, który wyświetla menu:
 1) Dodaj wykonawcę
+# INSERT INTO band (name, genre, albums) VALUES (?, ?, ?)
 2) Dodaj album
+# INSERT INTO album (title, tracks, year) VALUES (?, ?, ?)
 3) Wypisz wykonawców
 # SELECT name from band
 4) Wyisz albumy
