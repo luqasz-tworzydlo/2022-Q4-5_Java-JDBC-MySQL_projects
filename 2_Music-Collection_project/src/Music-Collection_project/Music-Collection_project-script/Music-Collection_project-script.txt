@@ -1,0 +1,13 @@
+Utwórz w XAMPPIE bazę danych music_bank z tabeami:
+- band (id, name, genre, albums)
+- album (id, title, tracks, year)
+
+dodaj po kilka rekordów [2-3 rekrody na jedną tabelę]
+
+w javie napisz program, który wyświetla menu:
+1) Dodaj wykonawcę
+2) Dodaj album
+3) Wypisz wykonawców
+4) Wyisz albumy
+5) Wpisz albumy z podanego przez użytkownika roku
+6) Zakończ
