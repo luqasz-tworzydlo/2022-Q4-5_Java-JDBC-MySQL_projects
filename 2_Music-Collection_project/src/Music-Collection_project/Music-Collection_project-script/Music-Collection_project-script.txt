@@ -1,6 +1,11 @@
-Utwórz w XAMPPIE bazę danych music_bank z tabeami:
+﻿Utwórz w XAMPPIE bazę danych music_bank z tabeami:
 - band (id, name, genre, albums)
+# INSERT INTO band (name, genre, albums) VALUES ('LQ', 'classic', 'CM-22')
+# INSERT INTO band (name, genre, albums) VALUES ('JTT', 'modern', 'MM-22')
 - album (id, title, tracks, year)
+# INSERT INTO album (title, tracks, year) VALUES ('LAlbum', '21', '2012')
+# INSERT INTO album (title, tracks, year) VALUES ('JAlbum', '300', '2021')
+# INSERT INTO album (title, tracks, year) VALUES ('LJ-Album', 'to be revealed', '2023')
 
 dodaj po kilka rekordów [2-3 rekrody na jedną tabelę]
 
