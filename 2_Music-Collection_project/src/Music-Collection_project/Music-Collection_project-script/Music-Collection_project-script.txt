@@ -13,6 +13,11 @@ w javie napisz program, który wyświetla menu:
 1) Dodaj wykonawcę
 2) Dodaj album
 3) Wypisz wykonawców
+# SELECT name from band
 4) Wyisz albumy
+# SELECT title FROM album
 5) Wpisz albumy z podanego przez użytkownika roku
+# SELECT album.title FROM album WHERE year = '2012'
+# SELECT album.title FROM album WHERE year = '2021'
+# SELECT album.title FROM album WHERE year = '2023'
 6) Zakończ

@@ -16,7 +16,7 @@ public class Main
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/4.1_music-collection", "root", "");
 
-        // dodanie nowego rekordu do tabeli [1.1]
+        /*// dodanie nowego rekordu do tabeli [1.1]
         PreparedStatement stmt1a = con.prepareStatement
                 ("INSERT INTO band (name, genre, albums) VALUES (?, ?, ?)");
         ((PreparedStatement)stmt1a).setString(1, "LQ"); // nazwa wykonawcy
@@ -30,7 +30,6 @@ public class Main
         stmt1b.setString(2, "modern"); // rodzaj muzyki
         stmt1b.setString(3, "MM-22"); // nazwa albumu/ów
         stmt1b.executeUpdate();
-
         // dodanie nowego rekordu do tabeli [2.1]
         PreparedStatement stmt2a = con.prepareStatement
                 ("INSERT INTO album (title, tracks, year) VALUES (?, ?, ?)");
@@ -38,7 +37,6 @@ public class Main
         stmt2a.setString(2, "21"); // ilość utworów
         stmt2a.setString(3, "2012"); // rok albumu
         stmt2a.executeUpdate();
-
         // dodanie nowego rekordu do tabeli [2.2]
         PreparedStatement stmt2b = con.prepareStatement
                 ("INSERT INTO album (title, tracks, year) VALUES (?, ?, ?)");
@@ -46,14 +44,13 @@ public class Main
         stmt2b.setString(2, "300"); // ilość utworów
         stmt2b.setString(3, "2021"); // rok albumu
         stmt2b.executeUpdate();
-
         // dodanie nowego rekordu do tabeli [2.3]
         PreparedStatement stmt2c = con.prepareStatement
                 ("INSERT INTO album (title, tracks, year) VALUES (?, ?, ?)");
         ((PreparedStatement)stmt2c).setString(1, "LJ-Album"); // nazwa albumu
         stmt2c.setString(2, "to be revealed"); // ilość utworów
         stmt2c.setString(3, "2023"); // rok albumu
-        stmt2c.executeUpdate();
+        stmt2c.executeUpdate();*/
 
         var option_number = 0;
             System.out.println("1. Dodaj wykonawcę");
@@ -84,30 +81,118 @@ public class Main
                     break;
         }
     }
-    public static  void showSelectedAlbums() // c1
+    public static  void showSelectedAlbums() // c5
     {
         System.out.println("Podaj rok, z którego mają być wypisane albumy:");
+        System.out.println("1. Wybierz rok 2012");
+        System.out.println("2. Wybierz rok 2021");
+        System.out.println("3. Wybierz rok 2023");
         var selectYear = 0;
         selectYear = sc.nextInt();
-        // ???
+        switch (selectYear) {
+            default:
+                selectYear = 0;
+                break;
+            case 1:
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection con = DriverManager.getConnection
+                            ("jdbc:mysql://localhost:3306/4.1_music-collection", "root", "");
+
+                    Statement stmt_2012 = con.createStatement();
+
+                    ResultSet lc_2012F = stmt_2012.executeQuery
+                            ("SELECT album.title FROM album WHERE year = '2012'");
+                    while(lc_2012F.next()) System.out.println
+                            ("- " + lc_2012F.getString(1));
+
+                } catch (Exception e1) {
+                    throw new RuntimeException(e1);
+                }
+                break;
+            case 2:
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection con = DriverManager.getConnection
+                            ("jdbc:mysql://localhost:3306/4.1_music-collection", "root", "");
+
+                    Statement stmt_2021 = con.createStatement();
+
+                    ResultSet lc_2021F = stmt_2021.executeQuery
+                            ("SELECT album.title FROM album WHERE year = '2021'");
+                    while(lc_2021F.next()) System.out.println
+                            ("- " + lc_2021F.getString(1));
+
+                } catch (Exception e2) {
+                    throw new RuntimeException(e2);
+                }
+                break;
+            case 3:
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection con = DriverManager.getConnection
+                            ("jdbc:mysql://localhost:3306/4.1_music-collection", "root", "");
+
+                    Statement stmt_2023 = con.createStatement();
+
+                    ResultSet lc_2023F = stmt_2023.executeQuery
+                            ("SELECT album.title FROM album WHERE year = '2023'");
+                    while(lc_2023F.next()) System.out.println
+                            ("- " + lc_2023F.getString(1));
+
+                } catch (Exception e3) {
+                    throw new RuntimeException(e3);
+                }
+                break;
+        }
     }
-    public static void showAlbums() // c2
+    public static void showAlbums() // c4
     {
-        System.out.println("Wszystkie albumy [z kządego roku]:");
-        // ???
+        System.out.println("Wszystkie albumy [z każdego roku]:");
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection
+                    ("jdbc:mysql://localhost:3306/4.1_music-collection", "root", "");
+
+            Statement stmt_wa = con.createStatement();
+
+            ResultSet lc_waF = stmt_wa.executeQuery
+                    ("SELECT title FROM album");
+            while(lc_waF.next()) System.out.println
+                    ("- " + lc_waF.getString(1));
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static void showCreators() // c3
     {
         System.out.println("Lista wszystkich wykonawców:");
-        // ???
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection
+                    ("jdbc:mysql://localhost:3306/4.1_music-collection", "root", "");
+
+            Statement stmt_W = con.createStatement();
+
+            ResultSet lc_Wf = stmt_W.executeQuery
+                    ("SELECT name from band");
+            while(lc_Wf.next()) System.out.println
+                    ("- " + lc_Wf.getString(1));
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
-    public static void addAlbum() // c4
+    public static void addAlbum() // c2
     {
         System.out.println("Dodaj nowy album do bazy danych:");
         // ???
     }
-    public static void addCreator() // c5
+    public static void addCreator() // c1
     {
         System.out.println("Ddaj nowego wykonawcę do bazy danych:");
         // ???
