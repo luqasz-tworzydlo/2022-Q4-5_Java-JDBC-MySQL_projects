@@ -3,10 +3,10 @@
 
 /=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=
 
-Java projects that connect to local database (MySQL).
+Simple Java projects that connect to a local database (MySQL).
 
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-Projekty w języku Java, które łączą się z lokalną bazą danych (MySQL).
+Proste projekty w języku Java, które łączą się z lokalną bazą danych (MySQL).
 
 /=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=
